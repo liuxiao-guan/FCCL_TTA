@@ -5,9 +5,9 @@ def args_parser():
     '''
     Default Setting
     '''
-    parser.add_argument('--Dataset_Dir',type=str,default=r'/home/guanxiaoliu/project/FCCL_PLUS/data0/federated_learning/')
-    parser.add_argument('--Project_Dir',type=str,default=r'/home/guanxiaoliu/project/FCCL_PLUS/')
-    parser.add_argument('--Original_Path',type=str,default=r'/home/guanxiaoliu/project/FCCL_PLUS/Network/')
+    parser.add_argument('--Dataset_Dir',type=str,default=r'/home/guanxiaoliu/project/FCCL_TTA/data0/federated_learning/')
+    parser.add_argument('--Project_Dir',type=str,default=r'/home/guanxiaoliu/project/FCCL_TTA/')
+    parser.add_argument('--Original_Path',type=str,default=r'/home/guanxiaoliu/project/FCCL_TTA/Network/')
     parser.add_argument('--CommunicationEpoch',type=int,default=40)
     parser.add_argument('--Seed',type=int,default=0)
     parser.add_argument('--device_ids',type=list,default=[0,1])
