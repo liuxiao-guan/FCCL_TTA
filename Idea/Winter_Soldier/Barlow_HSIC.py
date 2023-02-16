@@ -14,6 +14,8 @@ import numpy as np
 import torch
 import copy
 import os
+import tent
+
 
 args = args_parser()
 
@@ -278,8 +280,17 @@ if __name__ =='__main__':
                 _, test_dl, _, _ = get_dataloader(dataset=private_dataset_name, datadir=private_dataset_dir,
                                                   train_bs=TrainBatchSize,
                                                   test_bs=TestBatchSize, dataidxs=None)
+                
                 network = net_list[participant_index]
                 network = nn.DataParallel(network, device_ids=device_ids).to(device)
+                ## 加入tent
+                model = tent.configure_model(network)
+                params, param_names = tent.collect_params(model)
+                #optimizer = TODO_optimizer(params, lr=1e-3)
+                optimizer = optim.Adam(params, lr=Pariticpant_Params['learning_rate'])
+                network = tent.Tent(model, optimizer)
+
+                
                 acc_epoch_list.append(evaluate_network(network=network, dataloader=test_dl, logger=logger))
             acc_list.append(acc_epoch_list)
 

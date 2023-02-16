@@ -24,8 +24,8 @@ Evaluation_Idea_Dict = {
     'Counterpart': ['Feddf', 'FedMD', 'FML', 'RCFL', 'FedMATCH'],
 }
 Evaluation_Idea_Dict = {
-   'Winter_Soldier':['Barlow_HSIC','Barlow_HSIC_FISL_NTKD','Barlow_HSIC_FISL','Barlow&Progressive'],
-   #'Winter_Soldier':['Barlow_HSIC'],
+   #'Winter_Soldier':['Barlow_HSIC','Barlow_HSIC_FISL_NTKD','Barlow_HSIC_FISL','Barlow&Progressive'],
+   'Winter_Soldier':['Barlow_HSIC'],
     #'Counterpart': ['FedAvg','FedMD_homo','Feddf_homo','RCFL_homo','FedMATCH_homo','FML_homo'],
 }
 args = args_parser()

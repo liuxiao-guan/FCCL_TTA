@@ -7,3 +7,4 @@
 /Network/Model_Storage/*
 /Network/Performance_Analysis/*
 /Network/Model_Visualization/*
+GeneralizationDigits_cifar_100.npy
