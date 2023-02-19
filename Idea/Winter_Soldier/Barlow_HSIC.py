@@ -71,7 +71,7 @@ if __name__ =='__main__':
     seed = Seed
     np.random.seed(seed)
     os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
-    os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2,3,4,5,6,7"
+    os.environ["CUDA_VISIBLE_DEVICES"] = "4"
     device_ids = args.device_ids
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     torch.backends.cudnn.benchmark = True
@@ -320,6 +320,10 @@ if __name__ =='__main__':
                 private_dataset_name = Private_Dataset_Name_List[participant_index]
                 network = net_list[participant_index]
                 network = nn.DataParallel(network, device_ids=device_ids).to(device)
-                torch.save(network.state_dict(),
+                torch.save(network,
                            Idea_Winter_Dir+'/Model_Storage/' + Scenario + '/' + Ablation_Name + '/' + Public_Dataset_Name
                            + '/' + netname + '_' + str(participant_index) + '_' + private_dataset_name + '.ckpt')
+
+                # torch.save(network.state_dict(),
+                #            Idea_Winter_Dir+'/Model_Storage/' + Scenario + '/' + Ablation_Name + '/' + Public_Dataset_Name
+                #            + '/' + netname + '_' + str(participant_index) + '_' + private_dataset_name + '.ckpt')

@@ -96,8 +96,10 @@ if __name__ =='__main__':
                 network = nn.DataParallel(network, device_ids=device_ids).to(device)
                 netname = Private_Net_Name_List[particiapnt_index]
                 dataset_name = Private_Dataset_Name_List[particiapnt_index]
-                network.load_state_dict(torch.load(Method_Path+'Model_Storage/' +Scenario+'/'+Ablation_Name+'/'+
-                Public_Dataset_Name+'/'+ netname + '_' + str(particiapnt_index) + '_' +dataset_name+'.ckpt'))
+                network= torch.load(Method_Path+'Model_Storage/' +Scenario+'/'+Ablation_Name+'/'+
+                Public_Dataset_Name+'/'+ netname + '_' + str(particiapnt_index) + '_' +dataset_name+'.ckpt')
+                # network.load_state_dict(torch.load(Method_Path+'Model_Storage/' +Scenario+'/'+Ablation_Name+'/'+
+                # Public_Dataset_Name+'/'+ netname + '_' + str(particiapnt_index) + '_' +dataset_name+'.ckpt'))
                 particiapnt_test_accuracy_list = evaluate_network_generalization(network=network, dataloader_list=test_dl_list,
                 particiapnt_index=particiapnt_index,logger=logger)
                 del particiapnt_test_accuracy_list[particiapnt_index]
