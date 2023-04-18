@@ -1,5 +1,6 @@
 import sys
 sys.path.append("..")
+sys.path.append(".")
 from Network.utils_network import init_nets
 from Dataset.utils_dataset import init_logs, get_dataloader,generate_public_data_idxs
 from Idea.utils_idea import evaluate_network_generalization
